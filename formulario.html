@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div>
+        <a href="index.html" class="voltar">Voltar</a>
+    </div>
+    <main id="form-container">
+        <div id="form-header">
+            <h1 id="form-title">
+                Cadastre-se
+            </h1>
+            <button class="btn-default">
+                <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            </button>
+        </div>
+
+        <form action="" id="form">
+            <div id="input-container">
+                <div class="input-box">
+                  <label
+                    for="name"
+                    class="form-label"
+                    >
+                        Primeiro nome
+                    </label>
+                    <div class="input-field">
+                        <input type="text"
+                        name="name"
+                        id="name"
+                        class="form-control"
+                        placeholder="Seu primeiro nome"
+                        >
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+                    <span class="error"></span>
+                </div>
+
+                <div class="input-box">
+                    <label for="last-name" class="form-label">
+                        Sobrenome
+                    </label>
+                    <div class="input-field">
+                        <input type="text" name="last-name" id="last-name" class="form-control"
+                            placeholder="Seu sobrenome">
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+                    <span class="error"></span>
+                </div>
+
+
+                <div class="input-box">
+                    <label for="birthdate" class="form-label">
+                        Nascimento
+                    </label>
+                    <div class="input-field">
+                        <input type="date" name="birthdate" id="birthdate" class="form-control"
+                            placeholder="dd/mm/aaaa">
+
+                    </div>
+                    <span class="error"></span>
+
+                </div>
+
+                <div class="input-box">
+                    <label for="email" class="form-label">
+                        Email
+                    </label>
+                    <div class="input-field">
+                        <input type="email" name="email" id="email" class="form-control" placeholder="email@gmail.com">
+                        <i class="fa-regular fa-envelope"></i>
+
+                    </div>
+                    <span class="error"></span>
+                </div>
+
+                <div class="input-box">
+                    <label for="password" class="form-label">
+                        Senha
+                    </label>
+                    <div class="input-field">
+                        <input type="password" name="password" id="password" class="form-control"
+                            placeholder="********">
+                        <i class="fa-regular fa-eye-slash password-icon"></i>
+
+                    </div>
+                    <span class="error"></span>
+                </div>
+
+                <div class="input-box">
+                    <label for="confirm-password" class="form-label">
+                        Confirmar senha
+                    </label>
+                    <div class="input-field">
+                        <input type="password" name="confirm-password" id="confirm-password" class="form-control"
+                            placeholder="********">
+                        <i class="fa-regular fa-eye-slash password-icon"></i>
+                    </div>
+                    <span class="error"></span>
+                </div>
+
+                <div class="radio-container">
+                    <label class="form-label">
+                        Gênero
+                    </label>
+
+                    <div class="gender-inputs">
+                        <div class="radio-box">
+                            <input type="radio" name="gender" id="female" class="form-control" value="female">
+                            <label for="female" class="form-label">
+                                Feminino
+                            </label>
+                        </div>
+
+                        <div class="radio-box">
+                            <input type="radio" name="gender" id="male" class="form-control" value="male">
+                            <label for="male" class="form-label">
+                                Masculino
+                            </label>
+                        </div>
+
+                        <div class="radio-box">
+                            <input type="radio" name="gender" id="other" class="form-control" value="other">
+                            <label for="other" class="form-label">
+                                Outro
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-default">
+                <i class="fa-solid fa-check"></i>
+                Criar conta
+            </button>
+        </form>
+    </main>
+
+    <!--Javascript-->
+
+    <script>
+
+        
+
+        const form = document.querySelector('#form');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const fields = [
+                {
+                    id: 'name',
+                    label: 'Nome',
+                    validator: nameIsValid
+                },
+                {
+                    id: 'last-name',
+                    label: 'Sobrenome',
+                    validator: nameIsValid
+                },
+                {
+                  id: 'birthdate',
+                  label: 'Nascimento',
+                  validator: dateIsValid  
+                }
+            ]
+
+            const errorIcon = '<i class="fa-solid fa-circle-exclamation"></i>';
+
+            fields.forEach(function (field){
+                const input = document.getElementById(field.id);
+                const inputBox = input.closest('.input-box');
+                const inputValue = input.value;
+
+                const errorSpan = inputBox.querySelector('.error');
+                errorSpan.innerHTML = '';
+
+                inputBox.classList.remove('invalid')
+                inputBox.classList.add('valid')
+
+                const fieldValidator = field.validator(inputValue);
+
+                if (!fieldValidator.isValid) {
+                    errorSpan.innerHTML = `${errorIcon} ${fieldValidator.errorMessage}`;
+                    inputBox.classList.add('invalid');
+                    inputBox.classList.remove('valid');
+                    return;
+                }
+            })
+
+                
+    })
+
+        function isEmpty(value) {
+            return value === '';
+        }
+
+        function nameIsValid(value) {
+            const validator = {
+                isValid: true,
+                errorMessage: null
+            };
+
+            if (isEmpty(value)) {
+                validator.isValid = false;
+                validator.errorMessage = 'O campo é obrigatório';
+                return validator;
+            }
+
+            const min = 3;
+            if (value.length < min){
+                validator.isValid = false;
+                validator.errorMessage = `O nome deve ter no mínimo ${min} caracteres.`;
+                return validator;
+            }
+
+           const regex = /^[a-zA-ZÀ-ÿ\s]+$/;
+            if (!regex.test(value)) {
+                validator.isValid = false;
+                validator.errorMessage = 'O campo deve conter apenas letras.'
+            }
+
+            return validator;
+        }
+
+        function dateIsValid(value) {
+            const validator = {
+                isValid: true,
+                errorMessage: null
+            }
+
+            if (isEmpty(value)) {
+                validator.isValid = false;
+                validator.errorMessage = 'O nascimento é obrigatório';
+                return validator;
+            }
+
+            const year = new Date(value).getFullYear();
+
+            if (year < 1930 || year > new Date().getFullYear()) {
+                validator.isValid = false;
+                validator.errorMessage = 'Data inválida';
+                return validator;
+            }
+
+            return validator;
+        }
+
+
+        const passwordIcons = document.querySelectorAll('.password-icon');
+
+        passwordIcons.forEach(icon => {
+            icon.addEventListener('click', function (){
+                const input = this.parentElement.querySelector('.form-control');
+                input.type = input.type === 'password' ? 'text' : 'password';
+                this.classList.toggle('fa-eye-slash');
+                this.classList.toggle('fa-eye');
+            })
+        })
+
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+
+        }
+
+        :root {
+
+            --white-color: #fff;
+            --dark-color: #202020;
+            --primary-color: #9e1414;
+            --secondary-color: #e29b02;
+            --light-pink-color: #faf4f5;
+            --medium-gray-color: #ccc;
+
+            --font-size-s: 0.9rem;
+            --font-size-n: 1rem;
+            --font-size-m: 1.12rem;
+            --font-size-l: 1.5rem;
+            --font-size-xl: 2rem;
+            --font-size-xxl: 2.3rem;
+
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 600;
+            --font-weight-bold: 700;
+
+            --border-radius-s: 8px;
+            --border-radius-m: 30px;
+            --border-radius-circle: 50%;
+
+            --site-max-width: 1380px;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+        }
+
+        .btn-default {
+            background-color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: var(--font-size-m);
+            font-weight: var(--font-weight-medium);
+            color: var(--white-color);
+            cursor: pointer;
+            gap: 8px;
+            height: fit-content;
+            box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .btn-default:hover {
+            color: var(--primary-color);
+
+        }
+
+        .voltar {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 18px;
+            color: var(--dark-color);
+            font-size: var(--font-size-m);
+            border-radius: var(--border-radius-m);
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .voltar:hover {
+            color: var(--white-color);
+            background: var(--primary-color);
+        }
+
+        #form-container {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            height: 100%;
+            background-color: var(--white-color);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+        }
+
+        #form-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #form-title {
+            font-weight: 500;
+            color: var(--dark-color);
+            position: relative;
+        }
+
+        #form {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            gap: 32px;
+            height: 100%;
+        }
+
+        #input-container {
+            display: grid;
+            gap: 24px;
+        }
+
+        .form-label {
+            font-size: 12px;
+            color: var(--dark-color);
+            font-weight: var(--font-weight-normal);
+        }
+
+        .input-field {
+            display: flex;
+            align-items: center;
+            background-color: var(--white-color);
+            border-radius: 8px;
+            box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+        }
+
+        .input-field i {
+            display: flex;
+            align-items: center;
+            width: 30px;
+            height: 20px;
+            color: var(--primary-color);
+
+        }
+
+        .form-control {
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: var(--border-radius-m);
+        }
+
+        .input-field .password-icon:hover {
+            cursor: pointer;
+            color: var(--secondary-color);
+        }
+
+        .form-control:focus {
+            outline: none;
+        }
+
+        .input-box .input-field:focus-within {
+            outline: 2px solid var(--primary-color);
+        }
+
+        input:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0 1000px var(--white-color) inset !important;
+            color: var(--dark-color);
+        }
+
+        .radio-container {
+            grid-column: span 2;
+        }
+
+        #gender-inputs {
+            display: flex;
+            gap: 20px;
+        }
+
+        .radio-box {
+            display: inline-flex;
+            gap: 4px;
+            align-items: center;
+        }
+
+        .form-control[type="radio"] {
+            accent-color: var(--primary-color);
+        }
+
+        .error {
+            color: var(--primary-color);
+            font-size: 12px;
+            margin-top: 4px;
+            max-width: 200px;
+
+        }
+
+        .input-box.invalid .form-label {
+            color: #c61d1d;
+        }
+
+        .input-box.invalid .input-field {
+            border: 1px solid #c61d1d;
+        }
+
+        .input-box.valid .form-label {
+            color: #1bb051;
+        }
+
+        .input-box.valid .input-field {
+            border: 1px solid #1bb051;
+        }
+
+
+        @media screen and (max-width: 500px){
+            #form-container {
+                width: 100%;
+                min-height: 100vh;
+                padding: 32px;
+            }
+
+            #input-container {
+                display: flex;
+                flex-direction: column;
+                gap: 38px;
+            }
+
+            .voltar{
+                display: none;
+            }
+
+        }
+
+
+    </style>
+</body>
+
+</html>

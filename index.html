@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laje Sousa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!--Header e Navbar-->
+    <header>
+        <nav class="navbar section-content">
+            <a href="index.html" class="nav-logo">
+                <img src="imagens/logo.png" alt="logo" class="logo">
+            </a>
+            <ul class="nav-menu">
+                <button id="menu-close-button" class="fa-solid fa-xmark"></button>
+
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link ">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#sobre" class="nav-link">Sobre</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#marcas" class="nav-link">Marcas</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#depoimentos" class="nav-link">Depoimentos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#loc" class="nav-link">Localização</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contato" class="nav-link">Contato</a>
+                </li>
+            </ul>
+
+            <button id="menu-open-button" class="fas fa-bars"></button>
+        </nav>
+    </header>
+
+    <main>
+
+        <!--Hero-->
+        <section class="hero-section">
+            <div class="section-content">
+                <div class="hero-details">
+                    <h2 class="title">Laje Sousa</h2>
+                    <h3 class="subtitle">Materiais de Construção Civil</h3>
+                    <p class="description">Mais qualidade, menos custo: só aqui você encontra!
+                    </p>
+
+                    <div class="buttons">
+                        <a href="#" class="button budget" id="cadastro">Cadastre-se</a><a href="https://api.whatsapp.com/send/?phone=557574000729&text&type=phone_number&app_absent=0" class="button contact">Contato</a>
+                    </div>
+                </div>
+
+                <!--Imagem Capacete-->
+                <div class="hero-image-wrapper">
+                    <img src="imagens/capacete.png" alt="Capacete" class="hero-image">
+
+                </div>
+            </div>
+        </section>
+
+
+        <!--Sobre-->
+        <section class="about-section" id="sobre">
+            <div class="section-content">
+                <div class="about-image-wrapper">
+                    <img src="imagens/sobre.png" alt="Sobre" class="about-image">
+                </div>
+                <div class="about-details">
+                    <h2 class="section-title">Sobre Nós</h2>
+                    <p class="text">Somos uma loja especializada em materiais para construção civil, oferecendo produtos
+                        de qualidade para obras de todos os tamanhos. Desde o alicerce até o acabamento, trabalhamos com
+                        marcas reconhecidas no mercado para garantir segurança e durabilidade em cada projeto.
+
+                        Nosso compromisso é com o bom atendimento, o preço justo e a entrega eficiente. Atendemos tanto
+                        profissionais da área quanto clientes que buscam realizar reformas ou construções por conta
+                        própria.
+
+                        Aqui, você encontra tudo o que precisa para construir com confiança.
+                    </p>
+                    <div class="social-link-list">
+                        <a href="https://www.instagram.com/lajesousaoficial?utm_source=ig_web_button_share_sheet&igsh=MTcyMzYycGVyY25waQ==" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://api.whatsapp.com/send/?phone=557574000729&text&type=phone_number&app_absent=0" class="social-link"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Produtos-->
+        <section class="marcas-section" id="marcas">
+            <h2 class="section-title">Marcas</h2>
+            <div class="section-content">
+                <ul class="marcas-list">
+                    <li class="marcas-item">
+                        <img src="imagens/amanco logo.png" alt="amanco" class="marcas-image" id="logo-amanco">
+                        <h3 class="name">Amanco</h3>
+                        <p class="text">Tubos e conexões hidráulicas</p>
+                    </li>
+                    <li class="marcas-item">
+                        <img src="imagens/bluekit logo.png" alt="bluekit" class="marcas-image" id="logo-bluekit">
+                        <h3 class="name">Bluekit</h3>
+                        <p class="text">Reparos hidráulicos</p>
+                    </li>
+                    <li class="marcas-item">
+                        <img src="imagens/coral logo.png" alt="coral" class="marcas-image" id="logo-coral">
+                        <h3 class="name">Coral</h3>
+                        <p class="text">Tintas, vernizes e impermeabilizantes</p>
+                    </li>
+                    <li class="marcas-item">
+                        <img src="imagens/lorenzetti logo.png" alt="lorenzetti" class="marcas-image"
+                            id="logo-lorenzetti">
+                        <h3 class="name">Lorenzetti</h3>
+                        <p class="text">Duchas, chuveiros torneiras e aquecedores</p>
+                    </li>
+                    <li class="marcas-item">
+                        <img src="imagens/tekbond logo.png" alt="tekbond" class="marcas-image" id="logo-tekbond">
+                        <h3 class="name">Tekbond</h3>
+                        <p class="text">Colas e materiais de aplicação</p>
+                    </li>
+                    <li class="marcas-item">
+                        <img src="imagens/tigre logo.png" alt="tigre" class="marcas-image" id="logo-tigre">
+                        <h3 class="name">Tigre</h3>
+                        <p class="text">Tubos, conexões e materiais hidráulicos</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!--Depoimentos-->
+        <section class="depoimentos-section" id="depoimentos">
+            <h2 class="section-title">Depoimentos</h2>
+            <div class="section-content">
+                <div class="slider-container swiper">
+                    <div class="slider-wrapper">
+                        <ul class="depoimentos-list swiper-wrapper">
+                            <li class="depoimento swiper-slide">
+                                <img src="imagens/pessoa1.jpg" alt="pessoa 1" class="user-image">
+                                <h3 class="name">Gean Trabuco</h3>
+                                <i class="feedback">"Melhor loja de Feira de Santana, fui
+                                    muito bem atendido, nota 10."</i>
+                            </li>
+                            <li class="depoimento swiper-slide">
+                                <img src="imagens/pessoa2.jpg" alt="pessoa 2" class="user-image">
+                                <h3 class="name">Alana Kennedy</h3>
+                                <i class="feedback">"Amei! Encontrei tudo que precisava
+                                    lá, ótimo atendimento e muito organizado."</i>
+                            </li>
+                            <li class="depoimento swiper-slide">
+                                <img src="imagens/pessoa3.jpg" alt="pessoa 3" class="user-image">
+                                <h3 class="name">Murilo Sena</h3>
+                                <i class="feedback">"Gostei, ofereceram até um cafézinho haha.
+                                    Irei voltar mais vezes 💯💯."</i>
+                            </li>
+                            <li class="depoimento swiper-slide">
+                                <img src="imagens/pessoa4.jpg" alt="pessoa 4" class="user-image">
+                                <h3 class="name">Lucia Kevyna</h3>
+                                <i class="feedback">"A atendente Ste é uma flor! Fui bem
+                                    recebida 🌸."</i>
+                            </li>
+                        </ul>
+
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Localização-->
+        <section class="loc-section" id="loc">
+            <h2 class="section-title">Onde Estamos</h2>
+
+            <div class="section-content">
+                <div class="about-details">
+                    <h2 class="subtitle-1">Parque da Cidade 📍</h2>
+                    <p class="text-1">
+                        Rua A Lto, 476
+                    </p>
+
+                    <br>
+
+                    <h2 class="subtitle-2">Tomba 📍</h2>
+                    <p class="text-2">
+                        Rua Comendador Gomes, 531
+                    </p>
+                </div>
+
+                <div class="map-box">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3898.3249721731836!2d-38.95326412609884!3d-12.293888446548808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7143659f0e39a7f%3A0x4790d663b35ad97d!2sLaje%20Sousa%20Material%20de%20Constru%C3%A7%C3%A3o%20Ltda!5e0!3m2!1spt-BR!2sbr!4v1749131987534!5m2!1spt-BR!2sbr"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+
+
+        <!--Contato-->
+
+        <section class="contato-section" id="contato">
+            <h2 class="section-title">Entre em Contato</h2>
+            <div class="section-content">
+                <ul class="contato-info-list">
+                    <li class="contato-info">
+                        <i class="fa-solid fa-thumbtack"></i>
+                        <p>Tomba, R. Comendador Gomes, 531 - Feira de Santana, BA - 44091-238 - Brasil</p>
+                    </li>
+                    <li class="contato-info">
+                        <i class="fa-solid fa-envelope"></i>
+                        <p>lajesousa@gmail.com</p>
+                    </li>
+                    <li class="contato-info">
+                        <i class="fa-solid fa-phone"></i>
+                        <p>(75) 7400-0729</p>
+                    </li>
+                     <li class="contato-info">
+                        <i class="fa-solid fa-clock"></i>
+                        <p>Horário de funcionamento: 08:00-18:00</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!--Footer-->
+        <footer class="footer-section">
+            <div class="section-content">
+                <p class="copyright-text">COPYRIGHT 2025 © Laje Sousa</p>
+            </div>
+
+        </footer>
+    </main>
+
+    <!--Link Swiper-->
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
